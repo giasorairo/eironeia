@@ -1,0 +1,25 @@
+# [document] https://cloud.google.com/appengine/docs/standard/reference/app-yaml?hl=ja&tab=node.js#top
+
+# standard 環境
+env: standard
+
+# node.js 16 を使う
+runtime: nodejs18
+
+
+instance_class: F4
+
+# google app engine のサービスの名前
+service: default
+
+handlers:
+  - url: /.*
+    # http -> https
+    secure: always
+    # todo: 調べる
+    script: auto
+
+# スケーリングの設定
+automatic_scaling:
+  # 動かしていないときはインスタンスを 0 にする
+  min_instances: 0
